@@ -32,7 +32,8 @@ We say that the J-th disc and K-th disc intersect if J ≠ K and the J-th and K-
 
 The figure below shows discs drawn for N = 6 and A as follows:
 
-  ```A[0] = 1
+  ```
+  A[0] = 1
   A[1] = 5
   A[2] = 2
   A[3] = 1

@@ -1,31 +1,34 @@
-package com.hilst.studies.codility.beta2010;
+package com.hilst.studies.codility.challenges.beta2010;
 
 public class NumberOfDiscIntersections {
+
+    public static final int MAX_PAIRS = 10000000;
+
+    public static void main(String[] args) {
+
+//        int[] a = {1, 2147483647, 0};
+        int[] a = {1,5,2,1,4,0};
+        System.out.println(new NumberOfDiscIntersections().solution(a));
+    }
+
     public int solution(int[] A) {
         int pairs = 0;
+        int centerDistance = 0;
+        Long radiusSum = 0l;
 
-        for (int currentCircleCenter = 0; currentCircleCenter < A.length -1 && !hasReachedLimit(pairs); currentCircleCenter++) {
-            for (int otherCircleCenter = currentCircleCenter + 1; otherCircleCenter < A.length && !hasReachedLimit(pairs); otherCircleCenter++) {
-                if(checkIntersection(A,currentCircleCenter,otherCircleCenter)) {
+        for (int currentCircleCenter = 0; currentCircleCenter < A.length -1 ; currentCircleCenter++) {
+            for (int otherCircleCenter = currentCircleCenter + 1; otherCircleCenter < A.length ; otherCircleCenter++) {
+                if(pairs > MAX_PAIRS)
+                    return -1;
+                radiusSum = new Long(A[otherCircleCenter]) + new Long(A[currentCircleCenter]);
+                centerDistance = otherCircleCenter - currentCircleCenter;
+                if(centerDistance <= radiusSum) {
                     pairs++;
                     System.out.println(String.format("Intersection of circles: (%d,%d) and (%d,%d)",currentCircleCenter,A[currentCircleCenter],otherCircleCenter,A[otherCircleCenter]));
                 }
             }
         }
-        return hasReachedLimit(pairs) ? -1 : pairs;
+        return pairs;
     }
 
-    private boolean hasReachedLimit(int pairs) {
-        return pairs > 10000000;
-    }
-    private boolean checkIntersection(int[] A,int centerA, int centerB) {
-        boolean result = false;
-        Long radiusB = new Long(A[centerB]);
-        Long radiusA = new Long(A[centerA]);
-        Long radiusSum = radiusA + radiusB;
-        int centerDistance = Math.abs(centerA - centerB);
-        result = centerDistance <= radiusSum
-                || centerDistance <= Math.abs(radiusA - radiusB);
-        return result;
-    }
 }

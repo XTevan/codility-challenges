@@ -4,7 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BinaryGap {
-    public int solution(int N) {
+    public static void main(String[] args) {
+        Integer[] a = {1,5,2,1,4,0};
+//        int[] a = {1, 2147483647, 0};
+        Integer biggestGap = 0;
+
+        String binaryNumber = "";
+        for (int i = 0; i < 29; i++) {
+            binaryNumber += '0';
+            int number = Integer.parseInt(String.format("1%s1",binaryNumber),2);
+            biggestGap = Math.max(biggestGap,solution(number));
+            System.out.println(number);
+            System.out.println(biggestGap);
+        }
+    }
+
+    public static int solution(int N) {
         int result = 0;
         String binaryRepresentation = Integer.toBinaryString(N);
         List<Integer> positionOfOnes = new ArrayList<>();
