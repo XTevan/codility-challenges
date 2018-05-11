@@ -1,4 +1,4 @@
-package com.hilst.studies.codility.lessons;
+package com.hilst.studies.codility.lessons.arrays;
 
 import java.util.Arrays;
 

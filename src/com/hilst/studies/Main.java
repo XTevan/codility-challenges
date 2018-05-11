@@ -1,6 +1,6 @@
 package com.hilst.studies;
 
-import com.hilst.studies.codility.lessons.BinaryGap;
+import com.hilst.studies.codility.lessons.iterations.BinaryGap;
 
 public class Main {
 

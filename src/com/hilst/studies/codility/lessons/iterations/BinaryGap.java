@@ -1,4 +1,4 @@
-package com.hilst.studies.codility.lessons;
+package com.hilst.studies.codility.lessons.iterations;
 
 import java.util.ArrayList;
 import java.util.List;
