@@ -36,4 +36,17 @@ public class MissingInteger {
         }
         return result;
     }
+
+    public int solutionB(int[] A) {
+        int result = 1;
+        Set<Integer> numbers = new HashSet<>();
+        for (int index = 0; index < A.length; index++) {
+            numbers.add(A[index]);
+        }
+
+        while(numbers.contains(result))
+            result++;
+
+        return result;
+    }
 }
