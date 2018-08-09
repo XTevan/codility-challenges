@@ -34,22 +34,17 @@ public class MinAvgTwoSlice {
     {
         Instant init = Instant.now();
         int minIndex = 0;
-        double minAvg = Double.MAX_VALUE;
-        double currentAvg = 0;
-        int maxGroupSize = 4;
-        int count = 0;
+        double minAvg = (A[0] + A[1])/2d;
+        double currentAvg;
 
+        for (int index = 1; index < A.length - 1; index++) {
 
-        for (int index = 0; index < A.length; index++) {
-            count = A[index];
-            for (int lookAhead = 1; lookAhead < maxGroupSize && (index + lookAhead < A.length); lookAhead++) {
-                count += A[index + lookAhead];
-                currentAvg = count / (double)(lookAhead + 1);
-                if(currentAvg < minAvg) {
-                    minAvg = currentAvg;
-                    minIndex = index;
-                }
+            currentAvg = (A[index] + A[index +1]) / 2d;
+            if(currentAvg < minAvg) {
+                minAvg = currentAvg;
+                minIndex = index;
             }
+
         }
 
         Instant finish = Instant.now();
