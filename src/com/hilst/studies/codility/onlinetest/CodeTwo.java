@@ -7,7 +7,7 @@ public class CodeTwo {
 
     public int[] solution(int[] T) {
         int[] result = new int[T.length -1];
-        int[] cities = new int[T];
+        int[] cities = new int[T.length];
         int capital = -1;
         for (int index = 0; index < T.length; index++) {
             cities[T[index]]++;
